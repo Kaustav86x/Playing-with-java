@@ -77,5 +77,5 @@ public class AbastractPattern {
     p2.Pattern();
     Pattern3 p3 = new Pattern3(6);
     p3.Pattern();
-}
+} 
 }
