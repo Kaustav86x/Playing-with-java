@@ -21,7 +21,8 @@ class Bulldog extends Dogs
 public class RunTimePoly1 {
     public static void main(String args[])
     {
-      Bulldog obj1 = new Bulldog();
+      // runtime polymorphism
+      Dog obj1 = new Bulldog();
       // printing default constructor 
       System.out.println("d1 = " + obj1.d1);
       System.out.println("d2 = " + obj1.d2);
