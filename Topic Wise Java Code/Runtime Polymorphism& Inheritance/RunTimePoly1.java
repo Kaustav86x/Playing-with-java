@@ -1,3 +1,6 @@
+// Example of Basic Inheritance with default constructor
+
+
 class Dogs
 {
    public void All()
