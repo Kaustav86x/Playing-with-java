@@ -1,4 +1,4 @@
-/*Write a program that will take an integer within 100 and will convert in into letters (eg: 44 will be converted to Forty Four)*/
+/*Write a program that will take an integer upto 50 and will convert in into letters (eg: 44 will be converted to Forty Four)*/
 
 import java.io.*;
 
