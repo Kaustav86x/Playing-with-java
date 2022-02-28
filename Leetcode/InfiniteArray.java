@@ -1,3 +1,4 @@
+// find the position of a given number in an infinite array 
 public class InfiniteArray {
     public static void main(String[] args) {
         int[] arr = {3, 5, 7, 9, 10, 90,
