@@ -1,4 +1,4 @@
-// finding the maximum value of a binary tree
+// finding the maximum value in a binary tree
 
 import java.util.*;
 import java.io.*;
