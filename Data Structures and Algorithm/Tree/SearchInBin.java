@@ -1,4 +1,5 @@
-// finding the maximum value in a binary tree
+// searching for an element in binary tree
+
 import java.util.*;
 import java.io.*;
 
@@ -12,24 +13,16 @@ class Node {
     }
 }
 
-public class BinMax {
-    public static int MaxInBin(Node node)
-    {
+public class SearchInBin {
+    
+    public static boolean Search(Node node, int val) {
         if(node == null)
-            return Integer.MIN_VALUE;
-        int max = node.data;
-        // recursively finding the leftmax and rightmax of the tree
-        if(node != null) {
-            int leftmax = MaxInBin(node.left);
-            int rightmax = MaxInBin(node.right);
-            if(leftmax > max) {
-                max = leftmax;
-            }
-            if(rightmax > max)
-                max = rightmax;
-            }
-            return max;
-        }
+            return false;
+        if(node.data == val)
+            return true;
+        return (Search(node.left, val) || Search(node.left, val));
+    }
+
     public static Node insert(Node root, int data) {
         if(root == null) {
             return new Node(data);
@@ -54,8 +47,14 @@ public class BinMax {
             int data = scan.nextInt();
             root = insert(root, data);
         }
+        System.out.print("Enter the item you want to find : ");
+        int item = scan.nextInt();
         scan.close();
-        int val = MaxInBin(root);
-        System.out.println("The maximum value : " + val);
+        boolean val = Search(root, item);
+        if(val)
+            System.out.println("Value found");
+        else {
+            System.out.println("Not found");
+        }
     }
 }
