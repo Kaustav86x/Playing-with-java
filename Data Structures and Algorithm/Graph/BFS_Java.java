@@ -26,6 +26,7 @@ public class BFS_Java {
     {
         boolean visited[] = new boolean[V];
 
+        // queue
         LinkedList<Integer> queue = new LinkedList<Integer>();
 
         visited[v] = true;
@@ -70,7 +71,7 @@ public class BFS_Java {
             g.addEdge(node1, node2);
         }
 
-        System.out.println("Following is Depth First Traversal ");
+        System.out.println("Following is Breadth First Traversal ");
 
         g.BFS(1);
 
