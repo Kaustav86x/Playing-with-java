@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * Definition for a binary tree node.
@@ -39,7 +36,7 @@ public class LevelOrderTraversal {
             }
             result.add(temp); // each layer being added 
         }
-        result.remove(result.size() - 1); // checking the leaf node will give an empty list at the end of result
+        result.remove(result.size() - 1); // checking the leaf node will give an empty list at the end of result 
         return result;
     }
 }
