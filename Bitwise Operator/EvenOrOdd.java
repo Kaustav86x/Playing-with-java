@@ -4,7 +4,7 @@ public class EvenOrOdd {
 
     // check if a given number is even or odd
     public static boolean EvOrOd(int num) {
-        if((num & 1) == 1) return true; else return false;
+        if((num & 1) == 1) return false; else return true;
     }
     
     // set the ith bit to 1 if 0 or 1 either and returning the modified number
@@ -29,17 +29,17 @@ public class EvenOrOdd {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number : ");
         int num = sc.nextInt();
-        System.out.print("Specify the bit : ");
-        int bit = sc.nextInt();
+        // System.out.print("Specify the bit : ");
+        // int bit = sc.nextInt();
 
         // to determine evern or odd
-        boolean result1 = EvOrOd(num);
-        SetIthBit(num, bit);
-        ResetIthBit(num, bit);
-        int result2 = FindIthBit(num, bit);
+        String result1 = !EvOrOd(num) ? "Even" : "Odd";
+        // SetIthBit(num, bit);
+        // ResetIthBit(num, bit);
+        // int result2 = FindIthBit(num, bit);
 
         System.out.print("Even or Odd : " + result1);
-        System.out.print("The ith Bit is : " + result2);
+        // System.out.print("The ith Bit is : " + result2);
 
         sc.close();
 
