@@ -1,77 +1,57 @@
-// import java.io.*;
 import java.util.*;
-
-public class DFS_Java {
-
-    private int V;
-
-    // array of type linkedlist
-    private LinkedList<Integer> adj[];
-
-    // constructor
-    DFS_Java(int v) 
-    {
-        V = v;
-        // size declaration
-        adj = new LinkedList[v];
-        for(int i=0; i<v; i++)
-            adj[i] = new LinkedList<>();
-    }
-
-    // adding an edge
-
-    void addEdge(int v, int w) 
-    {
-        adj[v].add(w);
-    }
-
-    void DFSUtil(int v, boolean visited[]) 
-    {
-        visited[v] = true;
-        System.out.println(v + " ");
-
-        Iterator<Integer> i = adj[v].listIterator();
-        while(i.hasNext()) {
-            int n = i.next();
-            if(!visited[n])
-                DFSUtil(n, visited);
-        }
-    }
-
-    void DFS(int v) {
-        boolean visited[] = new boolean[V];
-        // mark all the vertices as 
-        // not visited
-        DFSUtil(v, visited);
-    }
-    
-    public static void main(String[] args) {
+class DFS_Java {
+    public static ArrayList<Integer> TreeBFS(int v_size, ArrayList<ArrayList<Integer>> adj) {
+        ArrayList<Integer> result = new ArrayList<>(); // to store the final result
+        Queue<Integer> q = new LinkedList< >(); // queue to add vertices
+        boolean vis[] = new boolean[v_size];  // to determine whether a node is visited or not
 
         Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the starting index : ");
+        int starting_vertex = sc.nextInt();
 
-        int node1,node2;
-        System.out.print("Enter the number of nodes : ");
-        int node = sc.nextInt();
+        q.add(starting_vertex);
+        vis[starting_vertex] = true; // starting to visit from node 0
 
-        DFS_Java g = new DFS_Java(node);
+        while(!q.isEmpty()) {
+            int temp = q.poll(); // pop the value from the queue (the starting node)
+            result.add(temp);    // 
 
-        int edge;
-        System.out.print("Enter the number of edges : ");
-        edge = sc.nextInt();
-
-        // adding two nodes using edge
-        for(int i=0; i<edge; i++)
-        {
-            System.out.print(i+1 +" th edge - ");
-            node1 = sc.nextInt();
-            node2 = sc.nextInt();
-            g.addEdge(node1, node2);
+            for(int iterator: adj.get(temp)) {  // iterating through the neighbours of node temp
+                if(vis[iterator] == false) {
+                    vis[iterator] = true;  
+                    q.add(iterator);     // first check then make the node visited
+                }
+            }
         }
-
-        System.out.println("Following is Depth First Traversal ");
-
-        g.DFS(2);
-
         sc.close();
+        return result;
+    }
+
+    public static void PrintList(ArrayList<Integer> result) {
+        for(int i=0; i<result.size(); i++)
+            System.out.print(result.get(i) + " "); // printing the end result
+    }
+
+    public static void main(String[] args) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        // Scanner sc = new Scanner(System.in);
+        // System.out.print("Enter the size of the graph : ");
+        // int V = sc.nextInt();
+        for(int i=0; i<5; i++)
+            adj.add(new ArrayList<>());
+        adj.get(0).add(1);
+        adj.get(1).add(0);
+        adj.get(0).add(2);
+        adj.get(2).add(0);
+        adj.get(0).add(3);
+        adj.get(3).add(0);
+        adj.get(2).add(4);
+        adj.get(4).add(2);
+
+        ArrayList<Integer> val = TreeBFS(5, adj);
+
+        PrintList(val);
+
+        // sc.close();
     }
 }
