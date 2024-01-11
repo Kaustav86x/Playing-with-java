@@ -42,7 +42,7 @@ public class HashTable {
         return hash;
     }
 
-  // set method
+  // set method - Inserting a new entry to the hashTable/hashMap 
 
     public void set(String key, int value) {
         int index = hash(key);
@@ -66,7 +66,7 @@ public class HashTable {
         }
     }
 
-  // get method
+  // get method -  return the value when the key is being provided
     
 	public int get(String key)
 	{
