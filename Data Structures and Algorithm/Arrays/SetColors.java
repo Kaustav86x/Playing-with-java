@@ -1,4 +1,4 @@
-class Solution {
+class Solution { 
     public void sortColors(int[] nums) {
     // optimal solution (Dutch National Flag algorithm) (0 ms)
     int low = 0; 
